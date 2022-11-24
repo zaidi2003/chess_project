@@ -1,0 +1,56 @@
+bool gameIsRunning = true;
+    while(gameIsRunning){
+        SDL_Event event;
+        while(SDL_PollEvent(&event)){
+            switch (event.type)
+            {
+            case SDL_QUIT:
+                gameIsRunning=false;
+                break;
+            case SDL_KEYDOWN:
+                switch (event.key.keysym.sym)
+
+                {
+                case SDLK_a:
+                    cout << "A";
+                    break;
+                case SDLK_w:
+                    cout << "W";
+                    break;
+                case SDLK_s:
+                    cout << "S";
+                    break;
+                case SDLK_d:
+                    cout << "D";
+                    break;    
+                default:
+                    break;
+                }
+
+            default:
+                break;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     SDL_Surface* image;
+    screen = SDL_GetWindowSurface(window);
+    image = SDL_LoadBMP("./res/chess1.bmp");
+
+    SDL_BlitSurface(image,NULL,screen,NULL);
+    SDL_FreeSurface(image);
+    SDL_UpdateWindowSurface(window);
