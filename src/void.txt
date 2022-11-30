@@ -1,0 +1,35 @@
+void print_board(SDL_Rect rectangle,SDL_Renderer* renderer,SDL_Rect moving_rect,SDL_Texture* pawn_texture){
+    for(int i=0;i<8;i++){
+
+            for(int j=0;j<8;j++){
+                   
+                if((i+j)%2 ==0){
+                    rectangle.x = 0+(64*(j));
+                    rectangle.y = 0+(64*i);
+                    rectangle.w = 64;
+                    rectangle.h = 64;  
+                    SDL_SetRenderDrawColor(renderer,255,255,255,SDL_ALPHA_OPAQUE);    
+                    SDL_RenderDrawRect(renderer,&rectangle);
+                    SDL_RenderFillRect(renderer,&rectangle);
+                    }
+                else
+                {
+                
+                rectangle.x = 0+(64*(j));
+                rectangle.y = 0+(64*i);
+                rectangle.w = 64;
+                rectangle.h = 64;  
+                SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);    
+                SDL_RenderDrawRect(renderer,&rectangle);
+                SDL_RenderFillRect(renderer,&rectangle);
+                }
+                if(i==1 || i==6){
+                    moving_rect.x = 0+(64*(j));
+                    moving_rect.y = 0+(64*i);
+                    SDL_RenderCopy(renderer,pawn_texture,NULL,&moving_rect);
+                } 
+            }       
+            
+        }
+        SDL_RenderPresent(renderer);
+}
