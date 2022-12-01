@@ -1,0 +1,15 @@
+while(true){
+        if(c%2==0){
+            start_screen = IMG_Load("./res/start1.png");
+            start_screen_texture = SDL_CreateTextureFromSurface(renderer,start_screen);
+        }
+        else{
+        start_screen = IMG_Load("./res/start2.png");
+        start_screen_texture = SDL_CreateTextureFromSurface(renderer,start_screen);
+        }
+        SDL_RenderCopy(renderer,start_screen_texture,NULL,&rectangle);
+
+        display();
+        c++;
+        SDL_Delay(500);
+    }
