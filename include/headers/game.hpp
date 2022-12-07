@@ -16,6 +16,7 @@ class Game{
         Board board;
         SDL_Window* window;
         SDL_Renderer* renderer;
+        int x_initial,y_initial,x_final,y_final;
     private:
         void init();
         void handleEvents();
